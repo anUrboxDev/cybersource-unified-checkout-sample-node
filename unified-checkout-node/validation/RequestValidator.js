@@ -278,12 +278,16 @@ function validateOrderInformation(orderInfoData) {
 function validateCompleteMandate(mandateData) {
   if (!mandateData) return;
 
-  try {
-    // Use the CyberSource model to validate structure
-    const mandateModel = cybersourceRestApi.Upv1capturecontextsCompleteMandate;
-    mandateModel.constructFromObject(mandateData);
-  } catch (error) {
-    throw new Error(`Invalid completeMandate: ${error.message}`);
+  // The installed cybersource-rest-client SDK version does not export a
+  // Upv1capturecontextsCompleteMandate model, so structural validation
+  // falls through to the manual field checks below.
+  const mandateModel = cybersourceRestApi.Upv1capturecontextsCompleteMandate;
+  if (mandateModel) {
+    try {
+      mandateModel.constructFromObject(mandateData);
+    } catch (error) {
+      throw new Error(`Invalid completeMandate: ${error.message}`);
+    }
   }
 
   // Restrict to known fields

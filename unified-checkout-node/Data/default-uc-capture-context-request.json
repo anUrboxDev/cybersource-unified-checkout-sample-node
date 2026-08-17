@@ -3,14 +3,14 @@
     "clientVersion" : "0.26",
     "allowedCardNetworks" : [ "VISA", "MASTERCARD", "AMEX", "DISCOVER", "JCB", "DINERSCLUB"],
     "allowedPaymentTypes" : ["CLICKTOPAY", "GOOGLEPAY"],
-    "country" : "US",
-    "locale" : "en_US",
+    "country" : "VN",
+    "locale" : "vi_VN",
     "captureMandate" : {
         "billingType" : "FULL",
         "requestEmail" : true,
         "requestPhone" : true,
         "requestShipping" : true,
-        "shipToCountries" : [ "US", "GB" ],
+        "shipToCountries" : [ "VN" ],
         "showAcceptedNetworkIcons" : true
     },
     "completeMandate": {
@@ -20,35 +20,35 @@
     "orderInformation" : {
         "amountDetails" : {
             "totalAmount" : "21.00",
-            "currency" : "USD"
+            "currency" : "VND"
         },
         "billTo" : {
-            "address1" : "123 Cool Street",
-            "administrativeArea" : "NY",
-            "buildingNumber" : "12",
-            "country" : "US",
-            "district" : "district",
-            "locality" : "New York",
-            "postalCode" : "10172",
+            "address1" : "123 Đường Nguyễn Huệ",
+            "administrativeArea" : "SG",
+            "buildingNumber" : "123",
+            "country" : "VN",
+            "district" : "Quận 1",
+            "locality" : "Hồ Chí Minh",
+            "postalCode" : "700000",
             "email" : "foo@bar.com",
-            "firstName" : "Viktor",
-            "lastName" : "Vaughn",
-            "middleName" : "F",
-            "nameSuffix" : "Jr",
+            "firstName" : "Văn An",
+            "lastName" : "Nguyễn",
+            "middleName" : "",
+            "nameSuffix" : "",
             "title" : "Mr",
-            "phoneNumber" : "1234567890",
+            "phoneNumber" : "0912345678",
             "phoneType" : "work"
         },
         "shipTo" : {
-            "address1" : "456 Nice Avenue",
-            "administrativeArea" : "CA",
-            "buildingNumber" : "409",
-            "country" : "US",
-            "district" : "Uptown",
-            "locality" : "Los Angeles",
-            "postalCode" : "90010",
-            "firstName" : "Alan",
-            "lastName" : "Turing"
+            "address1" : "456 Đường Lê Lợi",
+            "administrativeArea" : "HN",
+            "buildingNumber" : "456",
+            "country" : "VN",
+            "district" : "Hoàn Kiếm",
+            "locality" : "Hà Nội",
+            "postalCode" : "100000",
+            "firstName" : "Thị Bình",
+            "lastName" : "Trần"
         }
     }
 }

@@ -73,6 +73,10 @@ app.post('/capture-context', function (req, res) {
     instance.generateUnifiedCheckoutCaptureContext(requestObj, function (error, data, response) {
       if (error) {
         console.error('\nError : ' + JSON.stringify(error));
+        return res.status(error.status || 502).render('error', {
+          message: 'CyberSource rejected the capture context request.',
+          error: { status: error.status || 502, stack: error.body || error.message || '' }
+        });
       }
       else if (data) {
         const decodedData =  JSON.parse(Buffer.from(data.split('.')[1], 'base64').toString());
@@ -87,10 +91,14 @@ app.post('/capture-context', function (req, res) {
 
 app.post('/checkout', async function (req, res) {
   try {
-    const captureContext = req.body.captureContext;
-    
+    // Textareas preserve whitespace/newlines from the EJS template's
+    // indentation, so the posted token must be trimmed before use.
+    const captureContext = typeof req.body.captureContext === 'string'
+      ? req.body.captureContext.trim()
+      : req.body.captureContext;
+
     if (!captureContext || typeof captureContext !== 'string') {
-      return res.status(400).render('error', { 
+      return res.status(400).render('error', {
         message: 'Invalid request: captureContext token is required',
         error: { status: 400, stack: '' }
       });

@@ -33,7 +33,8 @@ const JWKS_HOSTS = {
 const ALLOWED_CLIENT_LIBRARY_HOSTS = new Set([
   'flex.cybersource.com',
   'testflex.cybersource.com',
-  'flex.test.cybersource.com'
+  'flex.test.cybersource.com',
+  'testup.cybersource.com'
 ]);
 
 /**
